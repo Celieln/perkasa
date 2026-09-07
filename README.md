@@ -10,10 +10,31 @@ Sistem data tenaga kerja PERKASA - import Excel massal, tracking, dan klaim.
 
 ## Teknologi
 
-- **PHP** - Bahasa pemrograman server-side
-- **MySQL** - Database
-- **Bootstrap 5** - Styling & responsive
-- **HTML5 + CSS3 + JavaScript** - Front-end
+**Backend**
+- PHP 8.x - server-side scripting dengan **PDO** + **prepared statements**
+- Bulk import Excel (92K+ records) dengan column-mapping & rollback
+- Tracking, klaim, pencairan, lokasi - workflow lengkap
+- Session-based authentication (bcrypt) & role authorization
+
+**Frontend**
+- HTML5, CSS3, JavaScript (ES6+)
+- Bootstrap 5 responsive dashboard
+- DataTables / pagination untuk data besar skala
+
+**Database**
+- MySQL 8 / MariaDB - indexing untuk query 90K+ baris
+
+**Tooling & DevOps**
+- Composer, PHPSpreadsheet
+- Git & GitHub
+- Laragon/WAMP
+
+## Arsitektur
+
+- **Front-end first** - hanya berisi tampilan depan (public UI)
+- Routing & layout modular (includes, pages)
+- Keamanan berlapis: prepared statements, input sanitization, password hashing
+- Session-based auth dengan bcrypt & role-based access control
 
 ## Quick Start
 
@@ -21,9 +42,9 @@ Prasyarat: [Laragon](https://laragon.org) / [XAMPP](https://www.apachefriends.or
 
 1. Clone repository ke folder laragon/www/ atau htdocs/:
 
-   `ash
+   ```bash
    git clone https://github.com/Celieln/perkasa.git
-   `
+   ```
 
 2. Import database (jika tersedia) melalui phpMyAdmin.
 3. Konfigurasi koneksi database di folder config/.
@@ -31,12 +52,12 @@ Prasyarat: [Laragon](https://laragon.org) / [XAMPP](https://www.apachefriends.or
 
 ## Struktur Proyek
 
-`
+```
 perkasa/
-  includes/    # Komponen yang di-include
+  includes/    # Komponen yang di-include (header, footer, dll)
   assets/      # CSS, JS, gambar
   *.php        # Halaman tampilan depan
-`
+```
 
 ## Kontribusi
 
@@ -44,4 +65,4 @@ Kontribusi sangat diterima! Baca [CONTRIBUTING](CONTRIBUTING.md) dan buka [Issue
 
 ## Lisensi
 
-[MIT](LICENSE) Â© [Celieln](https://github.com/Celieln)
+[MIT](LICENSE) (c) [Celieln](https://github.com/Celieln)
